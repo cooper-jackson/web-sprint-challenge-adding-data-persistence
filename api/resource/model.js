@@ -6,7 +6,7 @@ function getAll() {
     return db('resources')
 }
 
-async function add(resource) {
+async function add(resource) { // Adds the new resource to the resources table and returns the resource object
     const newResource = await db('resources').insert(resource)
     .then(result => db('resources').where('resource_id', result).first() )
 
